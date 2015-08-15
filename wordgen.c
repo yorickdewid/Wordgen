@@ -43,7 +43,7 @@
 
 #define DEFAULT_MAX	10
 
-static const char const prog[] = "Wordgen 1.0 - Generate random strings\nCopyright (c) 2015 Yorick de Wid";
+static const char prog[] = "Wordgen 1.0 - Generate random strings\nCopyright (c) 2015 Yorick de Wid";
 
 void
 usage(char *name)
@@ -154,11 +154,24 @@ int main(int argc, char **argv)
 		}
 	}
 
-	if (args.output_file != NULL)
-		out = fopen(args.output_file, "w");
-	else
-		out = stdout;
 
+	if (args.output_file != NULL)
+	{
+#if _WIN32
+		errno_t err = fopen_s(&out, args.output_file, "w");
+		if (err != 0)
+		{
+			fprintf(stderr, "%s\n", "Could not open file.");
+			exit(0);
+		}
+#else
+		out = fopen(args.output_file, "w");
+#endif
+	}
+	else
+	{
+		out = stdout;
+	}
 	if (out == NULL)
 	{
 		if (!args.quiet)

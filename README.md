@@ -22,6 +22,6 @@ This example generates a set of lowercase words between the 8 and 10 characters 
 ```
 wordgen -m 8 -i 10 -a -o passwords.txt
 ```
-To use the input directly a pipe could be used to feed the output into the second program `wordgen -i 5 | hydra ...`
+To use the input directly a pipe could be used to feed the output into the second program. For example: `wordgen -i 5 | hydra ...`
 ## License
 See [LICENSE](LICENSE)
