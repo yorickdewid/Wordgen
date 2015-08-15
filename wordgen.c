@@ -1,5 +1,3 @@
-// wordgen.cpp : Defines the entry point for the console application.
-//
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,11 +5,6 @@
 #include <errno.h>
 
 #include "wordgen.h"
-
-/*const char *argp_program_version = "wordfield 0.1beta1";
-const char *argp_program_bug_address = "<v.wochnik@yahoo.com>";
-static char doc[] = "Program to create large amounts of words in few time.";
-static char args_doc[] = "MINLENGTH [MAXLENGTH]";*/
 
 void
 usage(char *name)
@@ -27,6 +20,7 @@ usage(char *name)
 	fprintf(stderr, " -n\t\tChar set contains numbers (ignores -c)\n");
 	fprintf(stderr, " -s\t\tChar set contains special characters (ignores -c)\n");
 	fprintf(stderr, " -o [FILE]\tOutput to file\n");
+	fprintf(stderr, " -h \t\tShow this help\n");
 }
 
 struct arguments
