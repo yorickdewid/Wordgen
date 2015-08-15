@@ -21,7 +21,7 @@ wordgen.vcxproj.filters
     similar extensions under a specific node (for e.g. ".cpp" files are associated with the
     "Source Files" filter).
 
-wordgen.cpp
+wordgen.c
     This is the main application source file.
 
 /////////////////////////////////////////////////////////////////////////////
