@@ -1,40 +1,27 @@
-========================================================================
-    CONSOLE APPLICATION : wordgen Project Overview
-========================================================================
+# Wordgen
 
-AppWizard has created this wordgen application for you.
+Generate a set of words based on input parameters. This can be used to feed tools that take credential lists an an input.
+```
+usage: wordgen [OPTIONS]:
 
-This file contains a summary of what you will find in each of the files that
-make up your wordgen application.
+ -v             Print additional status information
+ -q             Do not print status messages
+ -m [MIN]       Set minimum char count
+ -i [MAX]       Set maximum char count (default: 10)
+ -c [SET]       Set user defined char set (max 255)
+ -a             Char set contain letters (ignores -c)
+ -A             Char set contain capital letters (ignores -c)
+ -n             Char set contains numbers (ignores -c)
+ -s             Char set contains special characters (ignores -c)
+ -o [FILE]      Output to file
+ -h             Show this help
+```
 
-
-wordgen.vcxproj
-    This is the main project file for VC++ projects generated using an Application Wizard.
-    It contains information about the version of Visual C++ that generated the file, and
-    information about the platforms, configurations, and project features selected with the
-    Application Wizard.
-
-wordgen.vcxproj.filters
-    This is the filters file for VC++ projects generated using an Application Wizard. 
-    It contains information about the association between the files in your project 
-    and the filters. This association is used in the IDE to show grouping of files with
-    similar extensions under a specific node (for e.g. ".cpp" files are associated with the
-    "Source Files" filter).
-
-wordgen.c
-    This is the main application source file.
-
-/////////////////////////////////////////////////////////////////////////////
-Other standard files:
-
-StdAfx.h, StdAfx.cpp
-    These files are used to build a precompiled header (PCH) file
-    named wordgen.pch and a precompiled types file named StdAfx.obj.
-
-/////////////////////////////////////////////////////////////////////////////
-Other notes:
-
-AppWizard uses "TODO:" comments to indicate parts of the source code you
-should add to or customize.
-
-/////////////////////////////////////////////////////////////////////////////
+## Example
+This example generates a set of lowercase words between the 8 and 10 characters and outputs it to a file.
+```
+wordgen -m 8 -i 10 -a -o passwords.txt
+```
+To use the input directly a pipe could be used to feed the output into the second program `wordgen -i 5 | hydra ...`
+## License
+See [LICENSE](LICENSE)
