@@ -6,6 +6,8 @@
 
 #include "wordgen.h"
 
+#define DEFAULT_MAX	10
+
 void
 usage(char *name)
 {
@@ -13,7 +15,7 @@ usage(char *name)
 	fprintf(stderr, " -v\t\tPrint additional status information\n");
 	fprintf(stderr, " -q\t\tDo not print status messages\n");
 	fprintf(stderr, " -m [MIN]\tSet minimum char count\n");
-	fprintf(stderr, " -i [MAX]\tSet maximum char count\n");
+	fprintf(stderr, " -i [MAX]\tSet maximum char count (default: 10)\n");
 	fprintf(stderr, " -c [SET]\tSet user defined char set (max 255)\n");
 	fprintf(stderr, " -a\t\tChar set contain letters (ignores -c)\n");
 	fprintf(stderr, " -A\t\tChar set contain capital letters (ignores -c)\n");
@@ -66,6 +68,9 @@ int main(int argc, char **argv)
 		usage(argv[0]);
 		return 1;
 	}
+
+	if (!args.maxlen)
+		args.maxlen = DEFAULT_MAX;
 
 	/* Initialize word field */
 	word = wordfield_init(args.maxlen);
