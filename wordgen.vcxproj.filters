@@ -29,5 +29,6 @@
     <ClInclude Include="wordgen.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="LICENSE" />
   </ItemGroup>
 </Project>

@@ -153,6 +153,7 @@
     <ClCompile Include="wordgen.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LICENSE" />
     <ClInclude Include="wordgen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
